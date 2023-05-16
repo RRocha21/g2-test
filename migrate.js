@@ -5,10 +5,10 @@ const { countries, states, cities } = require('./fixtures');
 const connectionString = process.env.DATABASE_URL;
 const client = new Pool({
   connectionString,
-  // ssl: {
-  //   require: true,
-  //   rejectUnauthorized: false
-  // },
+  ssl: {
+    require: true,
+    rejectUnauthorized: false
+  },
 });
 
 ( async () => {
