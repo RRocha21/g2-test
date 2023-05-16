@@ -1,0 +1,9 @@
+# ignore node dependency directories
+node_modules/
+**/node_modules/
+yarn.lock
+package-lock.json
+yarn-error.log
+
+# ignore env file
+.env
