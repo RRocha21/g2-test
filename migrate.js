@@ -3,17 +3,15 @@ require("dotenv").config();
 const { countries, states, cities } = require('./fixtures');
 
 const connectionString = process.env.DATABASE_URL;
-
 const client = new Pool({
-    connectionString,
-    ssl: {
-      require: true,
-      rejectUnauthorized: false
-    },
+  connectionString,
+  // ssl: {
+  //   require: true,
+  //   rejectUnauthorized: false
+  // },
 });
 
-async function populateTables() {
-  try {
+( async () => {
     await client.connect();
 
     // check if countries table exists
@@ -59,13 +57,5 @@ async function populateTables() {
     }
 
     console.log('Data imported successfully');
-  } catch (err) {
-    console.error(err);
-  } finally {
-    await client.end();
-  }
-}
-
-populateTables();
-
-process.exit(0);
+    client.end();
+})();
