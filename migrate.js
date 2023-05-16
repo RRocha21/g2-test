@@ -1,10 +1,10 @@
-const { Client } = require('pg');
+const Pool = require("pg").Pool;
 require("dotenv").config();
 const { countries, states, cities } = require('./fixtures');
 
 const connectionString = process.env.DATABASE_URL;
 
-const client = new Sequelize({
+const client = new Pool({
     connectionString,
     ssl: {
       require: true,
