@@ -67,3 +67,5 @@ async function populateTables() {
 }
 
 populateTables();
+
+process.exit(0);
