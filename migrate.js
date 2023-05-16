@@ -10,7 +10,6 @@ const client = new Sequelize({
       require: true,
       rejectUnauthorized: false
     },
-  }
 });
 
 async function populateTables() {
